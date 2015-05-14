@@ -1,0 +1,11 @@
+osx_image: xcode61
+language: objective-c
+xcode_workspace: cineio-broadcast-ios/cineio-broadcast-ios.xcworkspace
+xcode_scheme: cineio-broadcast-iosTests
+podfile: cineio-broadcast-ios/Podfile
+install:
+  - cd cineio-broadcast-ios
+  - travis_wait pod install
+  - cd ..
+script: "xctool -workspace cineio-broadcast-ios/cineio-broadcast-ios.xcworkspace -scheme cineio-broadcast-iosTests -sdk iphonesimulator test"
+#script: 'xcodebuild test -workspace cineio-broadcast-ios/cineio-broadcast-ios.xcworkspace -scheme cineio-broadcast-ios -destination name="iPhone 5"'
